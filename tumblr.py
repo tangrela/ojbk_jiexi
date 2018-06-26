@@ -51,7 +51,7 @@ def write(name):
         poster, video = url
         data = Context.query.filter_by(id=name, urls=video).first()
         if not data:
-            data = Context(name, video, 1, poster)
+            data = Context(id=name, urls=video, isvideo=1, poster=poster)
             db.session.add(data)
         else:
             data = Context.query.filter_by(id=name, urls=video).first()
@@ -60,7 +60,7 @@ def write(name):
     for url in list(set(pictures)):
         dat = Context.query.filter_by(id=name, urls=url).first()
         if not dat:
-            data = Context(name, url, 0, url)
+            data = Context(id=name, urls=url, isvideo=0, poster=url)
             db.session.add(data)
         else:
             data = Context.query.filter_by(id=name, urls=url).first()

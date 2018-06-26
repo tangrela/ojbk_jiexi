@@ -2,10 +2,12 @@
 1. 首先安装Python。linux自带了python，windows请自行下载python。推荐Centos7/Python2.7
 2. 这时候，pip应该可以用了。如果不行，linux请按下面的命令安装pip：
     `wget https://bootstrap.pypa.io/get-pip.py && python get-pip.py`
-3. 安装依赖库：`pip install -r requirement.txt`
-4. 创建数据库：`python rebuildDB.py`
-5. 安装`redis`：建议先安装宝塔，然后直接用宝塔安装redis
-6. 运行：`gunicorn -w4 -b 0.0.0.0:5000 run:app`
+3. `/root`目录下解压/git clone下源码:`git clone https://github.com/tangrela/ojbk_jiexi.git`
+4. 安装依赖库：`cd ojbk_jiexi && pip install -r requirement.txt`
+5. 创建一个`logs`目录: `mkdir logs`
+6. 创建数据库：`mv config.sample.py config.py && python rebuildDB.py`
+7. 安装`redis`：建议先安装宝塔，然后直接用宝塔安装redis(ps.必须安装redis)
+8. 网站目录下运行：`gunicorn -w4 -b 0.0.0.0:5000 run:app`
 
 然后访问 ip:5000 试试
 如果不能访问，看看防火墙是否开了5000端口？
@@ -69,3 +71,14 @@ server {
 ------
 示例网站：http://ojbk.us
 
+-----
+
+## 2018-01-30更新
+
+支持Tumblr导出视频和图片
+
+## 2018-02-04更新
+
+1. 新增微博批量解析
+2. 优化爬虫
+3. 上线1.0反爬虫策略

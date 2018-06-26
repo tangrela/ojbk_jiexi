@@ -2,7 +2,7 @@ import os
 basedir=os.path.abspath(os.path.dirname(__file__))
 
 SECRET_KEY='SSDFDSFDFD'
-#SQLALCHEMY_DATABASE_URI='mysql+pymysql://user:passwd@localhost/database'
+#SQLALCHEMY_DATABASE_URI='mysql+pymysql://user:passwd@localhost/db'
 SQLALCHEMY_DATABASE_URI='sqlite:///'+os.path.join(basedir,'data.sqlite')
 SQLALCHEMY_TRACK_MODIFICATIONS=True
 debug=True
